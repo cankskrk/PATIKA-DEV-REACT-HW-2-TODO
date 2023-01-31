@@ -17,7 +17,7 @@ function Main() {
 
   return (
     <div>
-      <Header />
+      <Header add={addAllList} />
       <div className="main">
         <input class="toggle-all" type="checkbox" />
 
@@ -26,7 +26,7 @@ function Main() {
             <li>
               <div class="view">
                 <input class="toggle" type="checkbox" />
-                <label>{item}</label>
+                <label>{item.content}</label>
                 <button class="destroy"></button>
               </div>
             </li>
