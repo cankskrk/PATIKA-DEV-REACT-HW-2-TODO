@@ -3,6 +3,7 @@ import React, { useState } from "react";
 function Header({ add }) {
   // States
   const [task, setTask] = useState({ id: "", content: "", status: false });
+  const [idNumber, setIdNumber] = useState(0);
 
   // Functions
   const handleChange = (event) => {
@@ -14,8 +15,10 @@ function Header({ add }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIdNumber(idNumber + 1);
+    task.id = idNumber;
     add(task);
-    setTask({ id: "", content: "", status: "" });
+    setTask({ id: "", content: "", status: false });
   };
 
   return (
@@ -23,7 +26,7 @@ function Header({ add }) {
       <h1>todos</h1>
       <form onSubmit={handleSubmit}>
         <input
-          class="new-todo"
+          className="new-todo"
           value={task.content}
           placeholder="What needs to be done?"
           autoFocus

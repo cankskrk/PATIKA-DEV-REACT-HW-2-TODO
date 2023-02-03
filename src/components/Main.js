@@ -15,19 +15,32 @@ function Main() {
     });
   };
 
+  const handleCheck = (event) => {
+    allList.forEach((i) => {
+      console.log(i);
+    });
+  };
+
   return (
     <div>
       <Header add={addAllList} />
       <div className="main">
-        <input class="toggle-all" type="checkbox" />
+        <input className="toggle-all" type="checkbox" />
 
-        <ul class="todo-list">
-          {allList.map((item, index) => (
-            <li>
-              <div class="view">
-                <input class="toggle" type="checkbox" />
+        <ul className="todo-list">
+          {allList.map((item) => (
+            <li key={item.id}>
+              <div className="view">
+                <input
+                  id={item.id}
+                  className="toggle"
+                  type="checkbox"
+                  onClick={handleCheck}
+                  checked={item.status}
+                  readOnly
+                />
                 <label>{item.content}</label>
-                <button class="destroy"></button>
+                <button className="destroy"></button>
               </div>
             </li>
           ))}

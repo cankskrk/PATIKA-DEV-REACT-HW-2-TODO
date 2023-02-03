@@ -3,14 +3,14 @@ import React from "react";
 function Footer() {
   return (
     <div className="footer">
-      <span class="todo-count">
+      <span className="todo-count">
         <strong>2</strong>
         items left
       </span>
 
-      <ul class="filters">
+      <ul className="filters">
         <li>
-          <a href="#/" class="selected">
+          <a href="#/" className="selected">
             All
           </a>
         </li>
@@ -22,7 +22,7 @@ function Footer() {
         </li>
       </ul>
 
-      <button class="clear-completed">Clear completed</button>
+      <button className="clear-completed">Clear completed</button>
     </div>
   );
 }
