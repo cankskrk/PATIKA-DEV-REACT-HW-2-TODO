@@ -16,7 +16,7 @@ function Header({ add }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     setIdNumber(idNumber + 1);
-    task.id = idNumber;
+    task.id = String(idNumber);
     add(task);
     setTask({ id: "", content: "", status: false });
   };

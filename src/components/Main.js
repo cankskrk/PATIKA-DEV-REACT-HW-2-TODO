@@ -18,7 +18,7 @@ function Main() {
   const handleCheck = (event) => {
     allList.forEach((i) => {
       if (i.id === event.target.id) {
-        i.status = true;
+        i.status = !i.status;
       }
     });
   };
@@ -38,7 +38,6 @@ function Main() {
                   className="toggle"
                   type="checkbox"
                   onChange={handleCheck}
-                  checked={item.status}
                 />
                 <label>{item.content}</label>
                 <button className="destroy"></button>
