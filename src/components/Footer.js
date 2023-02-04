@@ -1,31 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Footer({ filter }) {
+function Footer({ filtered }) {
+  const [filter, setFilter] = useState("");
   // Functions
   const handleClick = (event) => {
-    filter(event.target.name);
+    setFilter(event.target.name);
+    filtered(filter);
   };
 
   return (
     <div className="footer">
-      <a className="todo-count">
+      <a href="#/" className="todo-count">
         <strong>2</strong>
         items left
       </a>
 
       <ul className="filters">
         <li>
-          <a onClick={handleClick} name="All" className="selected">
+          <a href="#/" onClick={handleClick} name="All" className="selected">
             All
           </a>
         </li>
         <li>
-          <a onClick={handleClick} name="Active">
+          <a href="#/" onClick={handleClick} name="Active">
             Active
           </a>
         </li>
         <li>
-          <a onClick={handleClick} name="Completed">
+          <a href="#/" onClick={handleClick} name="Completed">
             Completed
           </a>
         </li>

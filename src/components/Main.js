@@ -8,7 +8,8 @@ import Footer from "./Footer";
 function Main() {
   // States -----------------
   const [list, setList] = useState([]);
-  const [filteredList, setFilteredList] = useState("All");
+  const [filteredList, setFilteredList] = useState([]);
+  const [filter, setFilter] = useState("All");
   //-------------------------
 
   // Functions --------------
@@ -26,22 +27,22 @@ function Main() {
     });
   };
 
-  const filterList = (filter) => {
-    setFilteredList(filter);
+  const filterList = (f) => {
+    setFilter(f);
     if (filter === "All") {
-      setList((prev) => {
+      setFilteredList((prev) => {
         return [...prev];
       });
     } else if (filter === "Active") {
       const activeList = list.filter((i) => {
         return i.status === false;
       });
-      setList([...activeList]);
+      setFilteredList(activeList);
     } else if (filter === "Completed") {
       const completedList = list.filter((i) => {
         return i.status === true;
       });
-      setList([...completedList]);
+      setFilteredList(completedList);
     }
   };
   //-------------------------
@@ -69,7 +70,7 @@ function Main() {
           ))}
         </ul>
       </div>
-      <Footer filter={filterList} />
+      <Footer filtered={filterList} />
     </div>
   );
 }
