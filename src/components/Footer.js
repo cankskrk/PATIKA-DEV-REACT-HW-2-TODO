@@ -1,24 +1,33 @@
 import React from "react";
 
-function Footer() {
+function Footer({ filter }) {
+  // Functions
+  const handleClick = (event) => {
+    filter(event.target.name);
+  };
+
   return (
     <div className="footer">
-      <span className="todo-count">
+      <a className="todo-count">
         <strong>2</strong>
         items left
-      </span>
+      </a>
 
       <ul className="filters">
         <li>
-          <a href="#/" className="selected">
+          <a onClick={handleClick} name="All" className="selected">
             All
           </a>
         </li>
         <li>
-          <a href="#/">Active</a>
+          <a onClick={handleClick} name="Active">
+            Active
+          </a>
         </li>
         <li>
-          <a href="#/">Completed</a>
+          <a onClick={handleClick} name="Completed">
+            Completed
+          </a>
         </li>
       </ul>
 

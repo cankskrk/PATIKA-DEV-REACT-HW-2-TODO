@@ -3,7 +3,6 @@ import React from "react";
 
 // Components
 import Main from "./components/Main";
-import Footer from "./components/Footer";
 import FooterInfo from "./components/Footer-Info";
 
 // CSS Files
@@ -14,7 +13,6 @@ function App() {
     <div className="App">
       <section className="todoapp">
         <Main />
-        <Footer />
       </section>
       <FooterInfo />
     </div>

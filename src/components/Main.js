@@ -3,34 +3,57 @@ import React, { useState } from "react";
 
 // Components
 import Header from "./Header";
+import Footer from "./Footer";
 
 function Main() {
-  // States
-  const [allList, setAllList] = useState([]);
+  // States -----------------
+  const [list, setList] = useState([]);
+  const [filteredList, setFilteredList] = useState("All");
+  //-------------------------
 
-  // Functions
-  const addAllList = (task) => {
-    setAllList((prev) => {
+  // Functions --------------
+  const addList = (task) => {
+    setList((prev) => {
       return [...prev, task];
     });
   };
 
   const handleCheck = (event) => {
-    allList.forEach((i) => {
+    list.forEach((i) => {
       if (i.id === event.target.id) {
         i.status = !i.status;
       }
     });
   };
 
+  const filterList = (filter) => {
+    setFilteredList(filter);
+    if (filter === "All") {
+      setList((prev) => {
+        return [...prev];
+      });
+    } else if (filter === "Active") {
+      const activeList = list.filter((i) => {
+        return i.status === false;
+      });
+      setList([...activeList]);
+    } else if (filter === "Completed") {
+      const completedList = list.filter((i) => {
+        return i.status === true;
+      });
+      setList([...completedList]);
+    }
+  };
+  //-------------------------
+
   return (
     <div>
-      <Header add={addAllList} />
+      <Header add={addList} />
       <div className="main">
         <input className="toggle-all" type="checkbox" />
 
         <ul className="todo-list">
-          {allList.map((item) => (
+          {list.map((item) => (
             <li key={item.id}>
               <div className="view">
                 <input
@@ -46,6 +69,7 @@ function Main() {
           ))}
         </ul>
       </div>
+      <Footer filter={filterList} />
     </div>
   );
 }
