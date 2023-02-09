@@ -8,8 +8,7 @@ import Footer from "./Footer";
 function Main() {
   // States -----------------
   const [list, setList] = useState([]);
-  const [filteredList, setFilteredList] = useState([]);
-  const [filter, setFilter] = useState("All");
+
   //-------------------------
 
   // Functions --------------
@@ -27,24 +26,6 @@ function Main() {
     });
   };
 
-  const filterList = (f) => {
-    setFilter(f);
-    if (filter === "All") {
-      setFilteredList((prev) => {
-        return [...prev];
-      });
-    } else if (filter === "Active") {
-      const activeList = list.filter((i) => {
-        return i.status === false;
-      });
-      setFilteredList(activeList);
-    } else if (filter === "Completed") {
-      const completedList = list.filter((i) => {
-        return i.status === true;
-      });
-      setFilteredList(completedList);
-    }
-  };
   //-------------------------
 
   return (
@@ -55,7 +36,7 @@ function Main() {
 
         <ul className="todo-list">
           {list.map((item) => (
-            <li key={item.id}>
+            <li className={item.status ? "completed" : ""} key={item.id}>
               <div className="view">
                 <input
                   id={item.id}
@@ -70,7 +51,7 @@ function Main() {
           ))}
         </ul>
       </div>
-      <Footer filtered={filterList} />
+      <Footer />
     </div>
   );
 }

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
-function Footer({ filtered }) {
-  const [filter, setFilter] = useState("");
+function Footer() {
+  const [filter, setFilter] = useState("All");
   // Functions
   const handleClick = (event) => {
-    setFilter(event.target.name);
-    filtered(filter);
+    const selected = event.target.name;
+    setFilter(selected);
   };
 
   return (
@@ -17,17 +17,32 @@ function Footer({ filtered }) {
 
       <ul className="filters">
         <li>
-          <a href="#/" onClick={handleClick} name="All" className="selected">
+          <a
+            href="#/"
+            onClick={handleClick}
+            name="All"
+            className={filter === "Completed" ? "selected" : ""}
+          >
             All
           </a>
         </li>
         <li>
-          <a href="#/" onClick={handleClick} name="Active">
+          <a
+            href="#/"
+            onClick={handleClick}
+            name="Active"
+            className={filter === "Completed" ? "selected" : ""}
+          >
             Active
           </a>
         </li>
         <li>
-          <a href="#/" onClick={handleClick} name="Completed">
+          <a
+            href="#/"
+            onClick={handleClick}
+            name="Completed"
+            className={filter === "Completed" ? "selected" : ""}
+          >
             Completed
           </a>
         </li>
