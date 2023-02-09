@@ -12,6 +12,10 @@ function List({ list, setList, status }) {
     );
   };
 
+  const deleteButton = (event) => {
+    setList(list.filter((item) => item.id !== event.id));
+  };
+
   return (
     <div>
       <section className="main">
@@ -36,7 +40,7 @@ function List({ list, setList, status }) {
                 <label>{listItem.form}</label>
                 <button
                   className="destroy"
-                  // onClick={() => deleteButton()}
+                  onClick={() => deleteButton()}
                 ></button>
               </div>
             </li>
