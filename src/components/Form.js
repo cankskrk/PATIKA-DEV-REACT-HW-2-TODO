@@ -16,10 +16,7 @@ function Form({ list, setList }) {
       return false;
     }
 
-    setList([
-      ...list,
-      { id: Math.random(), form: form, isEditable: false, isCompleted: false },
-    ]);
+    setList([...list, { id: Math.random(), form: form, isCompleted: false }]);
 
     setForm("");
   };

@@ -9,9 +9,12 @@ function Button({ list, setList, setStatus }) {
   );
 
   // Functions
+  const clearCompleted = (e) => {
+    setList(list.filter((item) => item.isCompleted === false));
+  };
 
-  const selectedButton = (e) => {
-    switch (e.target.id) {
+  const selectedButton = (event) => {
+    switch (event.target.id) {
       case "All":
         setSelect(["selected", "", ""]);
         setStatus("all");
@@ -19,10 +22,12 @@ function Button({ list, setList, setStatus }) {
       case "Active":
         setSelect(["", "selected", ""]);
         setStatus("active");
+        list.filter((item) => !item.isCompleted);
         break;
       case "Completed":
         setSelect(["", "", "selected"]);
         setStatus("completed");
+        list.filter((item) => item.isCompleted);
         break;
       default:
     }
@@ -30,10 +35,10 @@ function Button({ list, setList, setStatus }) {
 
   return (
     <div className="footer">
-      <a href="#/" className="todo-count">
-        <strong>{unCompleted.length}</strong>
+      <span className="todo-count">
+        <strong>{unCompleted.length} </strong>
         items left
-      </a>
+      </span>
 
       <ul className="filters">
         <li>
@@ -63,7 +68,13 @@ function Button({ list, setList, setStatus }) {
         </li>
       </ul>
 
-      <button className="clear-completed">Clear completed</button>
+      {list.length > unCompleted.length ? (
+        <button className="clear-completed" onClick={clearCompleted}>
+          Clear completed
+        </button>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
