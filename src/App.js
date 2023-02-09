@@ -11,10 +11,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <section className="todoapp">
-        <Main />
-      </section>
-      <FooterInfo />
+      <section className="todoapp"></section>
     </div>
   );
 }

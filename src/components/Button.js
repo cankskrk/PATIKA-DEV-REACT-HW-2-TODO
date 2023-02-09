@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 
 function Footer() {
-  const [filter, setFilter] = useState("All");
-  // Functions
-  const handleClick = (event) => {
-    const selected = event.target.name;
-    setFilter(selected);
-  };
-
   return (
     <div className="footer">
       <a href="#/" className="todo-count">
@@ -20,7 +13,7 @@ function Footer() {
           <a
             href="#/"
             onClick={handleClick}
-            name="All"
+            id="All"
             className={filter === "Completed" ? "selected" : ""}
           >
             All
@@ -30,7 +23,7 @@ function Footer() {
           <a
             href="#/"
             onClick={handleClick}
-            name="Active"
+            id="Active"
             className={filter === "Completed" ? "selected" : ""}
           >
             Active
@@ -40,7 +33,7 @@ function Footer() {
           <a
             href="#/"
             onClick={handleClick}
-            name="Completed"
+            id="Completed"
             className={filter === "Completed" ? "selected" : ""}
           >
             Completed
