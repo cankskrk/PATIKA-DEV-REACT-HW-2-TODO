@@ -2,10 +2,10 @@ import React from "react";
 
 function List({ list, setList, status }) {
   // Functions
-  const handleChange = (id) => {
-    setList((prev) =>
-      prev.map((listItem) =>
-        listItem.id
+  const handleChange = (selectedItem) => {
+    setList((listItems) =>
+      listItems.map((listItem) =>
+        listItem.id === selectedItem.id
           ? { ...listItem, isCompleted: !listItem.isCompleted }
           : listItem
       )
@@ -34,7 +34,7 @@ function List({ list, setList, status }) {
                   type="checkbox"
                   value={listItem.isCompleted}
                   onChange={() => {
-                    handleChange();
+                    handleChange(listItem);
                   }}
                 />
                 <label>{listItem.form}</label>

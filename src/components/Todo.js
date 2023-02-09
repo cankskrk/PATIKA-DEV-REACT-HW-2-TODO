@@ -21,7 +21,7 @@ function Todo() {
         </header>
 
         <List list={list} setList={setList} status={status} />
-        <Button />
+        <Button list={list} setList={setList} setStatus={setStatus} />
       </section>
 
       <Footer />
