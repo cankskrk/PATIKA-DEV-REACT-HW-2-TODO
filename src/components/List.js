@@ -34,13 +34,13 @@ function List({ list, setList, status }) {
                   type="checkbox"
                   value={listItem.isCompleted}
                   onChange={() => {
-                    handleChange(listItem);
+                    handleChange();
                   }}
                 />
                 <label>{listItem.form}</label>
                 <button
                   className="destroy"
-                  onClick={() => deleteButton()}
+                  onClick={() => deleteButton(listItem)}
                 ></button>
               </div>
             </li>
