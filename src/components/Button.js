@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Footer() {
+function Button() {
   return (
     <div className="footer">
       <a href="#/" className="todo-count">
@@ -10,32 +10,17 @@ function Footer() {
 
       <ul className="filters">
         <li>
-          <a
-            href="#/"
-            onClick={handleClick}
-            id="All"
-            className={filter === "Completed" ? "selected" : ""}
-          >
+          <a href="#/" id="All">
             All
           </a>
         </li>
         <li>
-          <a
-            href="#/"
-            onClick={handleClick}
-            id="Active"
-            className={filter === "Completed" ? "selected" : ""}
-          >
+          <a href="#/" id="Active">
             Active
           </a>
         </li>
         <li>
-          <a
-            href="#/"
-            onClick={handleClick}
-            id="Completed"
-            className={filter === "Completed" ? "selected" : ""}
-          >
+          <a href="#/" id="Completed">
             Completed
           </a>
         </li>
@@ -46,4 +31,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default Button;

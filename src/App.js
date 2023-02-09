@@ -2,8 +2,7 @@
 import React from "react";
 
 // Components
-import Main from "./components/Main";
-import FooterInfo from "./components/Footer-Info";
+import Todo from "./components/Todo";
 
 // CSS Files
 import "./App.css";
@@ -11,7 +10,7 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <section className="todoapp"></section>
+      <Todo />
     </div>
   );
 }
