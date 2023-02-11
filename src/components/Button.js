@@ -22,12 +22,11 @@ function Button({ list, setList, setStatus }) {
       case "Active":
         setSelect(["", "selected", ""]);
         setStatus("active");
-        list.filter((item) => !item.isCompleted);
         break;
       case "Completed":
         setSelect(["", "", "selected"]);
         setStatus("completed");
-        list.filter((item) => item.isCompleted);
+        setList(list.filter((item) => item.isCompleted));
         break;
       default:
     }

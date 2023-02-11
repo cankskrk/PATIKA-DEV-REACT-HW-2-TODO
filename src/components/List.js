@@ -33,9 +33,7 @@ function List({ list, setList, status }) {
                   className="toggle"
                   type="checkbox"
                   value={listItem.isCompleted}
-                  onChange={() => {
-                    handleChange(listItem);
-                  }}
+                  onChange={() => handleChange(listItem)}
                 />
                 <label>{listItem.form}</label>
                 <button
